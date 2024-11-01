@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Yourself</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <style>
+    .full-height {
+        height: 100vh; 
+      }
+      .custom-dimension {
+      width: 700px;
+    }
+  </style>
+  <body> 
+    <div class="container-fluid d-flex justify-content-center align-items-center full-height">
+      <div class="text-center bg-primary rounded-5 p-3 custom-dimension">
+        <h1 class="text-center text-light">Grade Checker</h1>
+        <input type="number" class="form-control shadow-none my-lg-3 my-2 rounded-5" placeholder="Enter your score" id="score" autofocus>
+        <button onclick="Grade()" class="btn btn-success my-lg-3 my-2 w-100 rounded-5">Check</button>
+        <div class="text-center text-warning fw-bold fs-3 my-2" id="showResults">Result</div>
+      </div>
+    </div>
+
+    <script>
+      
+      function Grade() {
+        var studentGrade = Number(document.getElementById('score').value)
+        
+        if (isNaN(studentGrade) || studentGrade < 1 || studentGrade > 100) {
+          showResults.innerHTML = 'Please fill in your grade'
+        } else if (studentGrade >= 0 && studentGrade <= 20) {
+          showResults.innerHTML = 'F'
+        } else if (studentGrade > 20 && studentGrade <= 40) {
+          showResults.innerHTML = 'D'
+        } else if (studentGrade > 40 && studentGrade <= 60) {
+          showResults.innerHTML = 'C'
+        } else if (studentGrade > 60 && studentGrade <= 80) {
+          showResults.innerHTML = 'B'
+        } else if (studentGrade > 80 && studentGrade <= 100) {
+          showResults.innerHTML = 'A'
+        }
+      }
+    </script>
+  </body>
+</html>
