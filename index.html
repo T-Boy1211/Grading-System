@@ -25,25 +25,51 @@
       </div>
     </div>
 
+    <audio id="audioA" src="audio/audioA.mp3"></audio>
+    <audio id="audioB" src="audio/audioB.mp3"></audio>
+    <audio id="audioC" src="audio/audioC.mp3"></audio>
+    <audio id="audioD" src="audio/audioD.mp3"></audio>
+    <audio id="audioF" src="audio/audioF.mp3"></audio>
+    
     <script>
       
       function Grade() {
         var studentGrade = Number(document.getElementById('score').value)
-        
+      
+        stopAllAudio();
+
         if (isNaN(studentGrade) || studentGrade < 1 || studentGrade > 100) {
           showResults.innerHTML = 'Please fill in your grade'
         } else if (studentGrade >= 0 && studentGrade <= 20) {
-          showResults.innerHTML = 'F'
+          showResults.innerHTML = 'F-Failure😂'
+          document.getElementById('audioF').play()
         } else if (studentGrade > 20 && studentGrade <= 40) {
-          showResults.innerHTML = 'D'
+          showResults.innerHTML = 'D-Fair😪'
+          document.getElementById('audioD').play()
         } else if (studentGrade > 40 && studentGrade <= 60) {
-          showResults.innerHTML = 'C'
+          showResults.innerHTML = 'C-Average🤔'
+          document.getElementById('audioC').play()
         } else if (studentGrade > 60 && studentGrade <= 80) {
-          showResults.innerHTML = 'B'
+          showResults.innerHTML = 'B-Good😍'
+          document.getElementById('audioB').play()
         } else if (studentGrade > 80 && studentGrade <= 100) {
-          showResults.innerHTML = 'A'
+          showResults.innerHTML = 'A-Excellent🥰'
+          document.getElementById('audioA').play()
         }
       }
+
+      function stopAllAudio() {
+      document.getElementById('audioA').pause();
+      document.getElementById('audioA').currentTime = 0;
+      document.getElementById('audioB').pause();
+      document.getElementById('audioB').currentTime = 0;
+      document.getElementById('audioC').pause();
+      document.getElementById('audioC').currentTime = 0;
+      document.getElementById('audioD').pause();
+      document.getElementById('audioD').currentTime = 0;
+      document.getElementById('audioF').pause();
+      document.getElementById('audioF').currentTime = 0;
+    }
     </script>
   </body>
 </html>
